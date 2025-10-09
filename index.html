@@ -349,7 +349,7 @@
             nadprowizjaDyrektora: dane.nadprowizje.dyrektor, nadprowizjaKierownika: dane.nadprowizje.kierownik, nadprowizjaFirmy: dane.nadprowizje.firma,
             infoDlaBiura: dane.infoDlaBiura
         };
-        fetch(SCRIPT_URL_DO_DANYCH, { method: 'POST', mode: 'cors', body: JSON.stringify(daneDoZapisu) })
+        fetch(SCRIPT_URL, { method: 'POST', mode: 'cors', body: JSON.stringify(daneDoZapisu) })
         .then(response => response.json())
         .then(data => {
             if (data.result !== "success") {
