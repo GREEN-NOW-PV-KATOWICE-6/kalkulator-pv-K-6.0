@@ -76,8 +76,21 @@
 
                 <button onclick="przejdzDoEtapu(2)">Dalej &rarr;</button>
             </div>
-            <div id="etap2" class="etap ukryty"><h2>Krok 2: Produkty i prace dodatkowe</h2><div id="opcje-magazynu-niskonapieciowego"><label for="magazyn-niskonapieciowy">Zwiększenie magazynu do 10kWh lub 15kWh: (DEYE)</label><select id="magazyn-niskonapieciowy"><option value="0" data-price="0">-- Wybierz --</option><option value="10kwh" data-price="3500">Zwiększenie magazynu do 10kWh</option><option value="15kwh" data-price="6500">Zwiększenie magazynu do 15kWh</option></select></div><div id="opcje-magazynu-wysokonapieciowego"><label for="magazyn-wysokonapieciowy">Zwiększenie magazynu do 14,21kWh lub 17,76kWh: (GOODWE)</label><select id="magazyn-wysokonapieciowy"><option value="0" data-price="0">-- Wybierz --</option><option value="14kwh" data-price="3100">Zwiększenie magazynu do 14,21kWh</option><option value="17kwh" data-price="6200">Zwiększenie magazynu do 17,76kWh</option></select></div>
-            
+            <div id="etap2" class="etap ukryty"><h2>Krok 2: Produkty i prace dodatkowe</h2>  <label>Zwiększenie magazynu DEYE:</label>
+                <select id="magazyn-niskonapieciowy">
+                    <option value="0" data-price="0">-- Wybierz --</option>
+                    <option value="deye10" data-price="3500">Zwiększenie magazynu DEYE do 10kWh</option>
+                    <option value="deye14" data-price="4500">Zwiększenie magazynu DEYE do 14,3kWh</option>
+                    <option value="deye16" data-price="5500">Zwiększenie magazynu DEYE do 16kWh</option>
+                    <option value="deye23" data-price="8500">Zwiększenie magazynu DEYE do 23,5kWh</option>
+                </select>
+
+                <label>Zwiększenie magazynu DYNESS:</label>
+                <select id="magazyn-wysokonapieciowy">
+                    <option value="0" data-price="0">-- Wybierz --</option>
+                    <option value="14kwh" data-price="3100">Zwiększenie magazynu DYNESS do 14,21kWh</option>
+                    <option value="17kwh" data-price="6200">Zwiększenie magazynu DYNESS do 17,76kWh</option>
+                </select>
             <label>Zwiększenie magazynu SIGENSTOR 1:</label>
             <select id="magazyn-sigenstor-1">
                 <option value="0" data-price="0">-- Wybierz --</option>
