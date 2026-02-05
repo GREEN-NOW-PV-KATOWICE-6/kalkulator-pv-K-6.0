@@ -917,8 +917,7 @@
         ]
     }
 };
-
-    function aktualizujPodsumowanieWizualne() {
+function aktualizujPodsumowanieWizualne() {
         numerZapisanejOferty = null;
         const getPrice = (el) => (el && el.selectedIndex > 0) ? parseFloat(el.options[el.selectedIndex].dataset.price) : 0;
         const getText = (el) => (el && el.selectedIndex > 0) ? el.options[el.selectedIndex].text : "";
@@ -945,12 +944,14 @@
         const typInstalacji = document.getElementById('typ-instalacji').value;
         const magSigen1Price = getPrice(document.getElementById('magazyn-sigenstor-1'));
         const magSigen2Price = getPrice(document.getElementById('magazyn-sigenstor-2'));
+        const ladowarkaPrice = getPrice(document.getElementById('ladowarka-samochodowa')); // NAPRAWIONE: Pobranie ceny ładowarki
         
         const czyWybranoPlatnyProdukt = wybranyZestaw.price > 0 || 
                                         getPrice(document.getElementById('magazyn-niskonapieciowy')) > 0 || 
                                         getPrice(document.getElementById('magazyn-wysokonapieciowy')) > 0 || 
                                         magSigen1Price > 0 || 
-                                        magSigen2Price > 0;
+                                        magSigen2Price > 0 ||
+                                        ladowarkaPrice > 0;
         
         if (typInstalacji === 'dokladka' && czyWybranoPlatnyProdukt) {
             oplataDokladka = 400;
@@ -958,6 +959,7 @@
 
         const magSigen1 = document.getElementById('magazyn-sigenstor-1');
         const magSigen2 = document.getElementById('magazyn-sigenstor-2');
+        const ladowarkaEl = document.getElementById('ladowarka-samochodowa');
 
         daneOferty = {
             zestawPV: wybranyZestaw,
@@ -965,6 +967,7 @@
             magazynWysoko: { text: getText(document.getElementById('magazyn-wysokonapieciowy')), price: getPrice(document.getElementById('magazyn-wysokonapieciowy')) },
             magazynSigen1: { text: getText(magSigen1), price: getPrice(magSigen1) },
             magazynSigen2: { text: getText(magSigen2), price: getPrice(magSigen2) },
+            ladowarka: { text: getText(ladowarkaEl), price: getPrice(ladowarkaEl) }, // NAPRAWIONE: Dodano obiekt ładowarki
             dodatkiMagazyn: { text: getText(document.getElementById('dodatki-magazyn')), price: getPrice(document.getElementById('dodatki-magazyn')) },
             dodatkiModuly: { text: getText(document.getElementById('dodatki-moduly')), price: getPrice(document.getElementById('dodatki-moduly')) },
             turbinaWiatrowa: { text: getText(document.getElementById('turbina-wiatrowa')), price: getPrice(document.getElementById('turbina-wiatrowa')) },
@@ -984,7 +987,9 @@
             infoDlaBiura: document.getElementById('info-dla-biura').value
         };
 
-        const kosztPodstawowy = daneOferty.zestawPV.price + daneOferty.magazynNisko.price + daneOferty.magazynWysoko.price + daneOferty.magazynSigen1.price + daneOferty.magazynSigen2.price + daneOferty.dodatkiMagazyn.price + daneOferty.dodatkiModuly.price + daneOferty.turbinaWiatrowa.price + daneOferty.przekop.cena + daneOferty.samKabel.cena + daneOferty.klimatyzacja.price + daneOferty.wymianaFalownikMagazyn.price + daneOferty.modernizacjaRozdzielni.price + daneOferty.inneDodatki.cena;
+        // NAPRAWIONE: Dodano daneOferty.ladowarka.price do sumy kosztPodstawowy
+        const kosztPodstawowy = daneOferty.zestawPV.price + daneOferty.magazynNisko.price + daneOferty.magazynWysoko.price + daneOferty.magazynSigen1.price + daneOferty.magazynSigen2.price + daneOferty.ladowarka.price + daneOferty.dodatkiMagazyn.price + daneOferty.dodatkiModuly.price + daneOferty.turbinaWiatrowa.price + daneOferty.przekop.cena + daneOferty.samKabel.cena + daneOferty.klimatyzacja.price + daneOferty.wymianaFalownikMagazyn.price + daneOferty.modernizacjaRozdzielni.price + daneOferty.inneDodatki.cena;
+        
         const sumaNadprowizji = daneOferty.nadprowizje.dyrektor + daneOferty.nadprowizje.kierownik + daneOferty.nadprowizje.firma;
         const kosztBazowy = kosztPodstawowy + sumaNadprowizji + daneOferty.oplataDokladka;
         
@@ -1017,6 +1022,7 @@
         dodajDoListy('Dod. magazyn WN', daneOferty.magazynWysoko.text);
         dodajDoListy('Dod. magazyn Sigen 1', daneOferty.magazynSigen1.text);
         dodajDoListy('Dod. magazyn Sigen 2', daneOferty.magazynSigen2.text);
+        dodajDoListy('Ładowarka EV', daneOferty.ladowarka.text); // NAPRAWIONE: Wyświetlanie ładowarki na liście
         dodajDoListy('Bufor ciepła', daneOferty.dodatkiMagazyn.text);
         dodajDoListy('Dodatkowe moduły', daneOferty.dodatkiModuly.text);
         dodajDoListy('Turbina Wiatrowa', daneOferty.turbinaWiatrowa.text);
