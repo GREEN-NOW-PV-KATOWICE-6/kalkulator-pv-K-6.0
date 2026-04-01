@@ -76,13 +76,17 @@
 
                 <button onclick="przejdzDoEtapu(2)">Dalej &rarr;</button>
             </div>
-            <div id="etap2" class="etap ukryty"><h2>Krok 2: Produkty i prace dodatkowe</h2>  <label>Zwiększenie magazynu DEYE:</label>
+            <div id="etap2" class="etap ukryty"><h2>Krok 2: Produkty i prace dodatkowe</h2>  <label>
+           <label>Zwiększenie magazynu FELICITY:</label>
                 <select id="magazyn-niskonapieciowy">
                     <option value="0" data-price="0">-- Wybierz --</option>
-                    <option value="deye10" data-price="3500">Zwiększenie magazynu DEYE do 10kWh</option>
-                    <option value="deye14" data-price="4500">Zwiększenie magazynu DEYE do 14,3kWh</option>
-                    <option value="deye16" data-price="5500">Zwiększenie magazynu DEYE do 16kWh</option>
-                    <option value="deye23" data-price="8500">Zwiększenie magazynu DEYE do 23,5kWh</option>
+                    <option value="felicity10" data-price="3500">Zwiększenie magazynu FELICITY do 10kWh</option>
+                    <option value="felicity14" data-price="4500">Zwiększenie magazynu FELICITY do 14,3kWh</option>
+                    <option value="felicity16" data-price="5500">Zwiększenie magazynu FELICITY do 16kWh</option>
+                    <option value="felicity23" data-price="8500">Zwiększenie magazynu FELICITY do 23,5kWh</option>
+                    <option value="felicity20" data-price="8500">Zwiększenie magazynu FELICITY 20kW</option>
+                    <option value="felicity30" data-price="15000">Zwiększenie magazynu FELICITY 30kW</option>
+                    <option value="felicity32" data-price="13000">Zwiększenie magazynu FELICITY 32kW</option>
                 </select>
 
                 <label>Zwiększenie magazynu DYNESS:</label>
@@ -92,20 +96,22 @@
                     <option value="17kwh" data-price="6200">Zwiększenie magazynu DYNESS do 17,76kWh</option>
                 </select>
             <label>Zwiększenie magazynu SIGENSTOR 1:</label>
-            <select id="magazyn-sigenstor-1">
-                <option value="0" data-price="0">-- Wybierz --</option>
-                <option value="10kw" data-price="3300">Zwiększenie magazynu SIGENSTOR do 10kW</option>
-                <option value="bat_6_0" data-price="9000">Dodatkowy moduł SigenStor BAT 6.0</option>
-                <option value="bat_10_0" data-price="11000">Dodatkowy moduł SigenStor BAT 10.0</option>
-            </select>
+                <select id="magazyn-sigenstor-1">
+                    <option value="0" data-price="0">-- Wybierz --</option>
+                    <option value="sig_10" data-price="6300">Zwiększenie magazynu SIGENSTOR 10kWh</option>
+                    <option value="sig_16" data-price="11000">Zwiększenie magazynu SIGENSTOR 16kWh</option>
+                    <option value="sig_20" data-price="17000">Zwiększenie magazynu SIGENSTOR 20kWh</option>
+                    <option value="sig_30" data-price="28000">Zwiększenie magazynu SIGENSTOR 30kWh</option>
+                </select>
             
             <label>Zwiększenie magazynu SIGENSTOR 2:</label>
-            <select id="magazyn-sigenstor-2">
-                <option value="0" data-price="0">-- Wybierz --</option>
-                <option value="10kw" data-price="3300">Zwiększenie magazynu SIGENSTOR do 10kW</option>
-                <option value="bat_6_0" data-price="9000">Dodatkowy moduł SigenStor BAT 6.0</option>
-                <option value="bat_10_0" data-price="11000">Dodatkowy moduł SigenStor BAT 10.0</option>
-            </select>
+                <select id="magazyn-sigenstor-2">
+                    <option value="0" data-price="0">-- Wybierz --</option>
+                    <option value="sig_10_2" data-price="6300">Zwiększenie magazynu SIGENSTOR 10kWh</option>
+                    <option value="sig_16_2" data-price="11000">Zwiększenie magazynu SIGENSTOR 16kWh</option>
+                    <option value="sig_20_2" data-price="17000">Zwiększenie magazynu SIGENSTOR 20kWh</option>
+                    <option value="sig_30_2" data-price="28000">Zwiększenie magazynu SIGENSTOR 30kWh</option>
+                </select>
 
             <h3>Inne dodatki</h3> <label>ŁADOWARKA SAMOCHODOWA:</label>
                 <select id="ladowarka-samochodowa">
@@ -146,14 +152,24 @@
                 <div id="dlugosc-kabla-kontener" class="ukryty"><label for="dlugosc-kabla">Długość samego kabla (w metrach):</label><input type="number" id="dlugosc-kabla" min="0" value="0"></div>
 
                 <label for="klimatyzacja">Klimatyzacja:</label><select id="klimatyzacja"><option value="0" data-price="0">-- Wybierz --</option><option value="klima_2_6" data-price="3330">Klimatyzacja TCL Ocarina 2,6kW</option><option value="klima_3_4" data-price="3420">Klimatyzacja TCL Ocarina 3,4kW</option><option value="klima_5_1" data-price="4120">Klimatyzacja TCL Ocarina 5,1kW</option><option value="klima_6_8" data-price="4500">Klimatyzacja TCL Ocarina 6,8kW</option></select>
-                <label for="wymiana-falownik-magazyn">Wymiana falownik + magazyn:</label>
+               <label for="wymiana-falownik-magazyn">Wymiana falownik + magazyn:</label>
                 <select id="wymiana-falownik-magazyn">
                     <option value="0" data-price="0">-- Wybierz --</option>
-                    <option value="wymiana_gw10" data-price="25400">Falownik LV (GoodWe 10) + magazyn 10kWh</option>
-                    <option value="wymiana_deye5" data-price="23300">Falownik LV (Deye 5) + magazyn 5kWh</option>
-                    <option value="wymiana_deye10" data-price="26300">Falownik LV (Deye 10) + magazyn 10kWh</option>
-                     <option value="wymiana_sigen6" data-price="26000">Falownik SIGEN HYBRID TP2 + SigenStor 6.0 (PSTRYK)</option>
-                    <option value="wymiana_sigen10" data-price="29300">Falownik SIGEN HYBRID TP2 + SigenStor 10.0 (PSTRYK)</option>
+                    <option value="wym_gw_t10" data-price="25400">Falownik HV (GoodWe) - Dyness T10</option>
+                    <option value="wym_gw_t14" data-price="28700">Falownik HV (GoodWe) - Dyness T14</option>
+                    <option value="wym_gw_t17" data-price="31900">Falownik HV (GoodWe) - Dynes T17</option>
+                    <option value="wym_deye_fel5" data-price="23300">Falownik LV Deye + Felicity 5kWh</option>
+                    <option value="wym_deye_fel10" data-price="26300">Falownik LV Deye + Felicity 10,5kWh</option>
+                    <option value="wym_deye_fel14" data-price="27900">Falownik LV Deye + Felicity 14,3 kWh</option>
+                    <option value="wym_deye_fel16" data-price="28800">Falownik LV Deye + Felicity 16kWh</option>
+                    <option value="wym_deye_fel23" data-price="31800">Falownik Deye + Felicity 23,5kWh</option>
+                    <option value="wym_deye_fel30" data-price="38300">Falownik Deye + Felicity 30kWh</option>
+                    <option value="wym_deye_fel32" data-price="36300">Falownik Deye + Felicity 32kWh</option>
+                    <option value="wym_sig_6" data-price="26000">Falownik Hybrid TP2 + SigenStor 6kWh (PSTRYK)</option>
+                    <option value="wym_sig_9" data-price="29300">Falownik Hybrid TP2 + SigenStor 9kWh (PSTRYK)</option>
+                    <option value="wym_sig_15" data-price="38100">Falownik Hybrid TP2 + SigenStor 15kWh (PSTRYK)</option>
+                    <option value="wym_sig_18" data-price="40000">Falownik Hybrid TP2 + SigenStor 18kWh (PSTRYK)</option>
+                    <option value="wym_sig_27" data-price="49700">Falownik Hybrid TP2 + SigenStor 27kWh (PSTRYK)</option>
                 </select>
                 
                 <label for="modernizacja-rozdzielni">MODERNIZACJA ROZDZIELNI:</label>
